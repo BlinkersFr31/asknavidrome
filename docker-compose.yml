@@ -5,7 +5,10 @@ services:
             - .env      
         ports:
             - '5000:5000'
-        image: 'asknavidrome:latest'
+        build:
+            context: .
+            dockerfile: Dockerfile
+        image: asknavidrome:latest
         logging:
             driver: "json-file"
             options:
