@@ -1,5 +1,5 @@
 FROM alpine:3.15.0 as build
-LABEL maintainer="Ross Stewart <rosskouk@gmail.com>"
+LABEL maintainer="BlinkersFr31"
 LABEL org.opencontainers.image.source https://github.com/BlinkersFr31/asknavidrome
 
 RUN apk add python3 py3-pip git build-base python3-dev libffi-dev openssl-dev
@@ -16,7 +16,7 @@ RUN source ../env/bin/activate && pip --no-cache-dir install wheel && pip --no-c
 
 
 FROM alpine:3.15.0
-LABEL maintainer="Ross Stewart <rosskouk@gmail.com>"
+LABEL maintainer="BlinkersFr31"
 
 RUN apk add python3
 
