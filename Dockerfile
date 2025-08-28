@@ -1,6 +1,6 @@
 FROM alpine:3.15.0 as build
 LABEL maintainer="Ross Stewart <rosskouk@gmail.com>"
-LABEL org.opencontainers.image.source https://github.com/rosskouk/asknavidrome
+LABEL org.opencontainers.image.source https://github.com/BlinkersFr31/asknavidrome
 
 RUN apk add python3 py3-pip git build-base python3-dev libffi-dev openssl-dev
 
@@ -8,7 +8,7 @@ WORKDIR /opt
 
 RUN python3 -m venv env
 
-RUN git clone https://github.com/rosskouk/asknavidrome.git
+RUN git clone https://github.com/BlinkersFr31/asknavidrome.git
 
 WORKDIR /opt/asknavidrome
 
