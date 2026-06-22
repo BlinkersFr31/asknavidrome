@@ -18,7 +18,7 @@ RUN source ../env/bin/activate && pip --no-cache-dir install wheel && pip --no-c
 FROM alpine:3.15.0
 LABEL maintainer="BlinkersFr31"
 
-RUN apk add python3
+RUN apk add python3 gcc musl-dev libffi-dev openssl-dev cargo
 
 COPY --from=build /opt/env /opt/env
 COPY --from=build /opt/asknavidrome/skill /opt/asknavidrome/
