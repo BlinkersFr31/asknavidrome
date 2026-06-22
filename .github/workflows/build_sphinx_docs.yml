@@ -10,15 +10,18 @@ jobs:
     name: Build Sphinx documentation
     runs-on: ubuntu-latest
     steps:
-      # https://github.com/marketplace/actions/checkout
       - name: Checkout the repository
         uses: actions/checkout@v3
 
-      # https://github.com/marketplace/actions/setup-python
       - name: Install Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.10'
+
+      - name: Install OpenSSL dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libssl-dev libcrypto-dev openssl
 
       - name: Setup Python environment
         run: |
@@ -30,7 +33,7 @@ jobs:
           rm -rf sphinx/_build
 
       - name: Generate documentation
-        run: >
+        run: |
           NAVI_SKILL_ID=${{ secrets.ALEXA_SKILL_ID }}
           NAVI_SONG_COUNT=50
           NAVI_URL=${{ secrets.NAVIDROME_URL }}
@@ -52,8 +55,8 @@ jobs:
 
       - name: Commit changes
         run: |
-          git config --global user.name 'Ross Stewart'
-          git config --global user.email 'rosskouk@users.noreply.github.com'
+          git config --global user.name 'BlinkersFr31'
+          git config --global user.email 'BlinkersFr31@users.noreply.github.com'
           git add docs/.gitkeep
           git add docs/.nojekyll
           git add *
